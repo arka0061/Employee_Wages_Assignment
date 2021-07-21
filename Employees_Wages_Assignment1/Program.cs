@@ -7,8 +7,11 @@ namespace Employees_Wages_Assignment1
         static void Main(string[] args)
         {
             int emp_rate_per_hr = 20;
-            for (int day = 0; day < 20; day++)
+            int days = 0;
+            int working_hrs = 0;
+            while (days <= 20 || working_hrs <= 100)
             {
+
                 Random random = new Random();
                 int emp_Chceck = random.Next(0, 2);
                 int emp_wage = 0;
@@ -27,7 +30,7 @@ namespace Employees_Wages_Assignment1
                 Console.WriteLine("The Wage of Employee is :" + emp_wage);
 
 
-
+                Console.WriteLine("Days :" + days + "Working hours"+ working_hrs);
                 /*  switch (emp_Chceck)
                   {
                       case 0:
@@ -46,8 +49,9 @@ namespace Employees_Wages_Assignment1
              
              Console.WriteLine("Employer Wage is : " + emp_wage);
                  */
-
+                days++;
+                working_hrs++;
+             }
             }
-        }
         }
 }
