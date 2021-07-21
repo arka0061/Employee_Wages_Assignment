@@ -22,6 +22,7 @@ namespace Employees_Wages_Assignment1
             }
             emp_wage = emp_hrs * emp_rate_per_hr;
             Console.WriteLine("The Wage of Employee is :" + emp_wage);
+            Console.WriteLine("Hi there");
             
         }
     }
