@@ -24,6 +24,7 @@ namespace Employees_Wages_Assignment1
             emp_wage = emp_hrs * emp_rate_per_hr;
             Console.WriteLine("The Wage of Employee is :" + emp_wage);
 
+
             switch (emp_Chceck)
             {
                 case 0:
@@ -38,6 +39,9 @@ namespace Employees_Wages_Assignment1
             }
             emp_wage = emp_hrs * emp_rate_per_hr;
             Console.WriteLine("Employer Wage is : " + emp_wage);
+            Console.WriteLine("Hi there");
+            
+
         }
     }
 }
