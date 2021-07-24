@@ -24,30 +24,8 @@ namespace Employees_Wages_Assignment1
                     emp_hrs = 4;
                 }
                 emp_wage = emp_hrs * emp_rate_per_hr;
-                Console.WriteLine("The Wage of Employee is :" + emp_wage);
-
-
-
-                /*  switch (emp_Chceck)
-                  {
-                      case 0:
-                          emp_hrs = 4;
-                          break;
-                      case 1:
-                          emp_hrs = 8;
-                          break;
-                      default:
-                          emp_hrs = 0;
-                          break;
-                  }
-
-              }
-              emp_wage = emp_hrs * emp_rate_per_hr;
-             
-             Console.WriteLine("Employer Wage is : " + emp_wage);
-                 */
-
+                Console.WriteLine("The Wage of Employee is :" + emp_wage);                
             }
         }
-        }
+    }
 }
