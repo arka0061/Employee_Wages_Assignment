@@ -20,13 +20,15 @@ namespace Employees_Wages_Assignment1
                   switch (emp_Chceck)
                   {
                       case 0:
+                          Console.WriteLine("Employee is Absent");
                           emp_hrs = 4;
                           break;
                       case 1:
+                          Console.WriteLine("Employee is Absent");
                           emp_hrs = 8;
                           break;
                       default:
-                          emp_hrs = 0;
+                          Console.WriteLine("Error");                         
                           break;
                   }
 
