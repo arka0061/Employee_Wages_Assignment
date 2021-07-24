@@ -31,6 +31,8 @@ namespace Employees_Wages_Assignment1
                           Console.WriteLine("Error");                         
                           break;
                   }
+                days++;
+                working_hrs++;
 
               }
               emp_wage = emp_hrs * emp_rate_per_hr;
