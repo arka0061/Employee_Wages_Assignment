@@ -16,22 +16,8 @@ namespace Employees_Wages_Assignment1
                 int emp_Chceck = random.Next(0, 2);
                 int emp_wage = 0;
                 int emp_hrs = 0;
-                if (emp_Chceck == 1)
-                {
-                    Console.WriteLine("Employee is present!");
-                    emp_hrs = 8;
-                }
-                else
-                {
-                    Console.WriteLine("Employee is Absent!");
-                    emp_hrs = 4;
-                }
-                emp_wage = emp_hrs * emp_rate_per_hr;
-                Console.WriteLine("The Wage of Employee is :" + emp_wage);
-
-
-                Console.WriteLine("Days :" + days + "Working hours"+ working_hrs);
-                /*  switch (emp_Chceck)
+              
+                  switch (emp_Chceck)
                   {
                       case 0:
                           emp_hrs = 4;
