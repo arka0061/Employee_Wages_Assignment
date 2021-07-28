@@ -4,42 +4,46 @@ namespace Employees_Wages_Assignment1
 {
     class Program
     {
-        static void Main(string[] args)
+       public static int Emp_Rate_Per_Hr = 20;
+       public static int Days = 0;
+       public static int Emp_Wage = 0;
+       public static int Emp_Hrs = 0;
+       public static int Working_Hrs = 0;
+        public static void Main(string[] args)
         {
-            int emp_rate_per_hr = 20;
-            int days = 0;
-            int emp_wage = 0;
-            int emp_hrs = 0;
-            int working_hrs = 0;
-            while (days <= 20 || working_hrs <= 100)
+            Program obj = new Program(); 
+            Console.WriteLine("Welcome to Employee Wage Program!");
+            Program.Employee_Wage();           
+        }
+        public static void Employee_Wage()
+        {
+            while (Days <= 20 || Working_Hrs <= 100)
             {
-
                 Random random = new Random();
-                int emp_Chceck = random.Next(0, 2);
+                int Emp_Check = random.Next(0, 2);
 
-                switch (emp_Chceck)
+                switch (Emp_Check)
                 {
                     case 0:
                         Console.WriteLine("Employee is Absent");
-                        emp_hrs = 4;
+                        Emp_Hrs = 4;
                         break;
                     case 1:
                         Console.WriteLine("Employee is Present");
-                        emp_hrs = 8;
+                        Emp_Hrs = 8;
                         break;
                     default:
                         Console.WriteLine("Error");
                         break;
                 }
-                days++;
-                working_hrs = working_hrs + emp_hrs;
-
+                Days++;
+                Working_Hrs = Working_Hrs + Emp_Hrs;
             }
-            emp_wage = working_hrs * emp_rate_per_hr;
+            Emp_Wage = Working_Hrs * Emp_Rate_Per_Hr;
 
-            Console.WriteLine("Employer Wage is : " + emp_wage);
-
+            Console.WriteLine("Employer Wage is : " + Emp_Wage);
         }
     }
 }
+
 
