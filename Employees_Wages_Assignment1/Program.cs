@@ -4,31 +4,40 @@ namespace Employees_Wages_Assignment1
 {
     class Program
     {
-       public static int Emp_Rate_Per_Hr = 20;
-       public static int Days = 0;
-       public static int Emp_Wage = 0;
-       public static int Emp_Hrs = 0;
-       public static int Working_Hrs = 0;
+       public  int Days = 1;
+       public  int Emp_Wage = 0;
+       public  int Emp_Hrs = 0;
+       public  int Working_Hrs = 0;
+       public String Choose = "";
         public static void Main(string[] args)
         {
             Program obj = new Program(); 
             Console.WriteLine("Welcome to Employee Wage Program!");
-            Program.Employee_Wage();           
+            obj.Employee_Wage("Google", 6, 25, 120);     
+            obj.Employee_Wage("Wipro", 5, 27, 140);   
         }
-        public static void Employee_Wage()
+        public void Employee_Wage(String Company,int Wage_Per_Hour,int Max_Working_Days,int Max_Working_Hours)
         {
-            while (Days <= 20 || Working_Hrs <= 100)
-            {
+            while (Days <= Max_Working_Days && Working_Hrs <= Max_Working_Hours)
+            {           
                 Random random = new Random();
                 int Emp_Check = random.Next(0, 2);
-
-                switch (Emp_Check)
+                if(Emp_Check==0)
                 {
-                    case 0:
+                    Choose = "Part_Time";
+                }
+                else
+                {
+                    Choose = "Full_Time";
+                }
+
+                switch (Choose)
+                {
+                    case "Part_Time":
                         Console.WriteLine("Employee is Absent");
                         Emp_Hrs = 4;
                         break;
-                    case 1:
+                    case "Full_Time":
                         Console.WriteLine("Employee is Present");
                         Emp_Hrs = 8;
                         break;
@@ -38,10 +47,10 @@ namespace Employees_Wages_Assignment1
                 }
                 Days++;
                 Working_Hrs = Working_Hrs + Emp_Hrs;
-            }
-            Emp_Wage = Working_Hrs * Emp_Rate_Per_Hr;
-
-            Console.WriteLine("Employer Wage is : " + Emp_Wage);
+                Emp_Wage = Working_Hrs * Wage_Per_Hour;                     
+            }      
+           Console.WriteLine("Total Employee Wage of " +Company+" "+"is "+ Emp_Wage);
+           Console.WriteLine("--------------------------------------------------------------------------");
         }
     }
 }
