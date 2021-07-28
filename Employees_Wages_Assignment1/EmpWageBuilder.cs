@@ -1,31 +1,24 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Employees_Wages_Assignment1
 {
-
-
-	public class EmpWageBuilder
-	{
-		public String Company_Name;
-		public int Wage_Per_Hour;
-		public int Max_Working_Days;
-		public int Max_Working_Hours;
+    public class EmpWageBuilder
+    {
+        Program program = new Program();
         public int Days = 1;
-        public int Total_Wage = 0;
         public int Emp_Hrs = 0;
         public int Working_Hrs = 0;
         public String Choose = "";
-        public EmpWageBuilder(String companyName, int wage_Per_Hour, int max_Working_Days, int max_Working_Hours)
-
-		{
-			Company_Name = companyName;
-			Wage_Per_Hour = wage_Per_Hour;
-			Max_Working_Days = max_Working_Days;
-			Max_Working_Hours = max_Working_Hours;
-		}
-	       public void Employee_Wage()
+        public int counter = 0;
+        public void Wage_Computation()
+        {
+            EmpWageBuilder emp = new EmpWageBuilder();
+            Company_Employee_Wage obj = new Company_Employee_Wage();
+            foreach (var data in Program.Company)
             {
-                while (Days <= Max_Working_Days && Working_Hrs <=Max_Working_Hours)
+                while (Days <= data.Max_Working_Days && Working_Hrs <= data.Max_Working_Hours)
                 {
                     Random random = new Random();
                     int Emp_Check = random.Next(0, 2);
@@ -40,13 +33,13 @@ namespace Employees_Wages_Assignment1
 
                     switch (Choose)
                     {
-                        case "Part_Time":
-                            Console.WriteLine("Employee is Absent");
+                        case "Part_Time":                          
                             Emp_Hrs = 4;
+                            Console.WriteLine("Employee is Absent" + "       "+ "Employee Hrs is : " + Emp_Hrs);
                             break;
                         case "Full_Time":
-                            Console.WriteLine("Employee is Present");
                             Emp_Hrs = 8;
+                            Console.WriteLine("Employee is Present"+"      "+"Employee Hrs is : " + Emp_Hrs);                       
                             break;
                         default:
                             Console.WriteLine("Error");
@@ -54,20 +47,19 @@ namespace Employees_Wages_Assignment1
                     }
                     Days++;
                     Working_Hrs = Working_Hrs + Emp_Hrs;
-                    Total_Wage = Working_Hrs * Wage_Per_Hour;
+                    data.Total_Wage = Working_Hrs * data.Wage_Per_Hour;
                 }
-              
-            }
-        public void Display()
-        {
-            Console.WriteLine("Total Employee Wage of " + Company_Name + " " + "is " + Total_Wage);
-            Console.WriteLine("--------------------------------------------------------------------------");
-
+                Days = 0;
+                Working_Hrs = 0;
+                emp.Display(data);
+            }                
         }
+        public void Display(Company_Employee_Wage cmp)
+        {         
+            Console.WriteLine("The Company " + cmp.Company_Name + " has a total Employee Wage of " + cmp.Total_Wage);
+            Console.WriteLine("--------------------------------------------------------------------------------");
         }
-	}
-
-
-
+    }
+}
 
 
