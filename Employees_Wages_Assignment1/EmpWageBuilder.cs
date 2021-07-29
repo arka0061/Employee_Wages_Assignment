@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Employees_Wages_Assignment1
 {
-    public class EmpWageBuilder
+    public class EmpWageBuilder : IEmpWageBuilder
     {
         Program program = new Program();
         public int Days = 1;
@@ -15,9 +16,10 @@ namespace Employees_Wages_Assignment1
         public void Wage_Computation()
         {
             EmpWageBuilder emp = new EmpWageBuilder();
-            Company_Employee_Wage obj = new Company_Employee_Wage();
+            CompanyEmployeWage obj = new CompanyEmployeWage();                                                                
             foreach (var data in Program.Company)
             {
+                Console.WriteLine("EMPLOYEE STATUS" + "      " + "Employee Working Hours" +"        "+ "Day"+"     "+"Total Working Hours");
                 while (Days <= data.Max_Working_Days && Working_Hrs <= data.Max_Working_Hours)
                 {
                     Random random = new Random();
@@ -33,13 +35,13 @@ namespace Employees_Wages_Assignment1
 
                     switch (Choose)
                     {
-                        case "Part_Time":                          
+                        case "Part_Time":
                             Emp_Hrs = 4;
-                            Console.WriteLine("Employee is Absent" + "       "+ "Employee Hrs is : " + Emp_Hrs);
+                            Console.WriteLine("Employee is Absent " + "                   " + Emp_Hrs + "             " + Days + "       " + Working_Hrs);
                             break;
                         case "Full_Time":
                             Emp_Hrs = 8;
-                            Console.WriteLine("Employee is Present"+"      "+"Employee Hrs is : " + Emp_Hrs);                       
+                            Console.WriteLine("Employee is Present " + "                  " + Emp_Hrs + "             " + Days + "       " + Working_Hrs);
                             break;
                         default:
                             Console.WriteLine("Error");
@@ -49,12 +51,12 @@ namespace Employees_Wages_Assignment1
                     Working_Hrs = Working_Hrs + Emp_Hrs;
                     data.Total_Wage = Working_Hrs * data.Wage_Per_Hour;
                 }
-                Days = 0;
+                Days = 1;
                 Working_Hrs = 0;
                 emp.Display(data);
             }                
         }
-        public void Display(Company_Employee_Wage cmp)
+        public void Display(CompanyEmployeWage cmp)
         {         
             Console.WriteLine("The Company " + cmp.Company_Name + " has a total Employee Wage of " + cmp.Total_Wage);
             Console.WriteLine("--------------------------------------------------------------------------------");
