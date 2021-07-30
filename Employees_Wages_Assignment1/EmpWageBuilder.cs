@@ -16,10 +16,10 @@ namespace Employees_Wages_Assignment1
         public void Wage_Computation()
         {
             EmpWageBuilder emp = new EmpWageBuilder();
-            CompanyEmployeWage obj = new CompanyEmployeWage();                                                                
+            CompanyEmployeWage obj = new CompanyEmployeWage();
             foreach (var data in Program.Company)
             {
-                Console.WriteLine("EMPLOYEE STATUS" + "      " + "Employee Working Hours" +"        "+ "Day"+"     "+"Total Working Hours");
+                Console.WriteLine("EMPLOYEE STATUS" + "      " + "Employee Working Hours" + "        " + "Day" + "     " + "Total Working Hours");
                 while (Days <= data.Max_Working_Days && Working_Hrs <= data.Max_Working_Hours)
                 {
                     Random random = new Random();
@@ -54,14 +54,12 @@ namespace Employees_Wages_Assignment1
                 Days = 1;
                 Working_Hrs = 0;
                 emp.Display(data);
-            }                
+            }
         }
         public void Display(CompanyEmployeWage cmp)
-        {         
+        {
             Console.WriteLine("The Company " + cmp.Company_Name + " has a total Employee Wage of " + cmp.Total_Wage);
             Console.WriteLine("--------------------------------------------------------------------------------");
         }
     }
 }
-
-

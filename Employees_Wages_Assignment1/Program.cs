@@ -17,7 +17,8 @@ namespace Employees_Wages_Assignment1
             Company.Add(new CompanyEmployeWage()
             { Company_Name = "Google", Wage_Per_Hour = 9, Max_Working_Days = 25, Max_Working_Hours = 110 });
             emp.Wage_Computation();
-            }
+
+        }
         }
     }
 
